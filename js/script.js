@@ -30,25 +30,25 @@ function playGame (btnValue) {
     let randomNumber = Math.floor(Math.random() * 100) + 1; //1-100
     console.log(x, randomNumber);
     
-      if ( (x == 1) && (randomNumber < 20) ) {
+      if ( (x == 1) && (randomNumber <= 25) ) {
         return 'papier'; // computer wins
-      } else if ( (x == 1) && (randomNumber >= 20) && ( randomNumber < 25) ) {
+      } else if ( (x == 1) && (randomNumber > 25) && ( randomNumber <= 25) ) {
         return 'kamień'; // draw
-      } else if ( (x == 1) && (randomNumber >= 25) && (randomNumber <= 100) ) {
+      } else if ( (x == 1) && (randomNumber > 25) && (randomNumber <= 100) ) {
         return 'nożyce'; // user wins
 
-      } else if ( (x == 2) && (randomNumber < 20) ) {
+      } else if ( (x == 2) && (randomNumber <= 25) ) {
         return 'nożyce'; // computer wins
-      } else if ( (x == 2) && (randomNumber >= 20) && ( randomNumber < 25) ) {
+      } else if ( (x == 2) && (randomNumber > 25) && ( randomNumber <= 25) ) {
         return 'papier'; // draw
-      } else if ( (x == 2) && (randomNumber >= 25) && ( randomNumber <= 100) ) {
+      } else if ( (x == 2) && (randomNumber > 25) && ( randomNumber <= 100) ) {
         return 'kamień'; // user wins
 
-      } else if ( (x == 3) && (randomNumber < 20) ) {
+      } else if ( (x == 3) && (randomNumber <= 25) ) {
         return 'kamień'; // computer wins
-      } else if ( (x == 3) && (randomNumber >= 20) && ( randomNumber < 25) ) {
+      } else if ( (x == 3) && (randomNumber > 25) && ( randomNumber <= 25) ) {
         return 'nożyce'; // draw
-      } else if ( (x == 3) && (randomNumber >= 25) && ( randomNumber <= 100) ) {
+      } else if ( (x == 3) && (randomNumber > 25) && ( randomNumber <= 100) ) {
         return 'papier'; // user wins
       }
   }
@@ -81,7 +81,6 @@ function playGame (btnValue) {
   }
 
   printMessage(displayResult(computerMove, playerMove));
-  console.log(Math.round(computerWins/playerWins * 100) + '%');
 
   //show counter 
 
@@ -108,7 +107,6 @@ function testGame() {
   for (let i = 0; i <= 2000; i++) {
     playGame(1);
   }
-
   for (let i = 0; i <= 2000; i++) {
     playGame(2);
   }
@@ -118,13 +116,9 @@ function testGame() {
 }
 
 document.getElementById('test').addEventListener('click', function() {
- 
   console.log('Testuję....');
   testGame();
-
   console.log(computerWins, playerWins);
-
-  console.log(Math.round(computerWins/playerWins * 100) + '%'); // should be ca. 25%
-
+  console.log(Math.round((computerWins/(computerWins + playerWins)) * 100) + '%'); // should be ca. 25% of total rounds
   console.log('Koniec testu!');
 });
