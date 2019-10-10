@@ -30,25 +30,25 @@ function playGame (btnValue) {
     let randomNumber = Math.floor(Math.random() * 100) + 1; //1-100
     console.log(x, randomNumber);
     
-      if ( (x == 1) && (randomNumber <= 25) ) {
+      if ( (x == 1) && (randomNumber <= 10) ) {
         return 'papier'; // computer wins
-      } else if ( (x == 1) && (randomNumber > 25) && ( randomNumber <= 25) ) {
+      } else if ( (x == 1) && (randomNumber > 10) && ( randomNumber <= 30) ) {
         return 'kamień'; // draw
-      } else if ( (x == 1) && (randomNumber > 25) && (randomNumber <= 100) ) {
+      } else if ( (x == 1) && (randomNumber > 30) && (randomNumber <= 100) ) {
         return 'nożyce'; // user wins
 
-      } else if ( (x == 2) && (randomNumber <= 25) ) {
+      } else if ( (x == 2) && (randomNumber <= 10) ) {
         return 'nożyce'; // computer wins
-      } else if ( (x == 2) && (randomNumber > 25) && ( randomNumber <= 25) ) {
+      } else if ( (x == 2) && (randomNumber > 10) && ( randomNumber <= 30) ) {
         return 'papier'; // draw
-      } else if ( (x == 2) && (randomNumber > 25) && ( randomNumber <= 100) ) {
+      } else if ( (x == 2) && (randomNumber > 30) && ( randomNumber <= 100) ) {
         return 'kamień'; // user wins
 
-      } else if ( (x == 3) && (randomNumber <= 25) ) {
+      } else if ( (x == 3) && (randomNumber <= 10) ) {
         return 'kamień'; // computer wins
-      } else if ( (x == 3) && (randomNumber > 25) && ( randomNumber <= 25) ) {
+      } else if ( (x == 3) && (randomNumber > 10 && ( randomNumber <= 30) ) ) {
         return 'nożyce'; // draw
-      } else if ( (x == 3) && (randomNumber > 25) && ( randomNumber <= 100) ) {
+      } else if ( (x == 3) && (randomNumber > 30) && ( randomNumber <= 100) ) {
         return 'papier'; // user wins
       }
   }
@@ -71,8 +71,8 @@ function playGame (btnValue) {
       console.log('Wygrywa komputer!');
       return 'Wygrywa komputer!';
     } else if (comp == user) {
-      // playerWins++;
-      // computerWins++;
+      playerWins++;
+      computerWins++;
       console.log('Remis!');
       return 'Remis!';
     } else {
